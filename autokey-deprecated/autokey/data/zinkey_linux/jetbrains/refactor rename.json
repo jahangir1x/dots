@@ -1,0 +1,28 @@
+{
+    "type": "script",
+    "description": "refactor rename",
+    "store": {},
+    "modes": [
+        3
+    ],
+    "usageCount": 0,
+    "prompt": false,
+    "omitTrigger": false,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": "<f2>"
+    },
+    "filter": {
+        "regex": "jetbrains-*",
+        "isRecursive": false
+    }
+}

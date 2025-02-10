@@ -312,6 +312,10 @@
     },
     // quick open
     {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
         "key": "shift+t",
         "command": "workbench.action.quickOpen",
         "when": "vim.mode == 'Normal'"
