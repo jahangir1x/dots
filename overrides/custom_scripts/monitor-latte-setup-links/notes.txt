@@ -1,0 +1,4 @@
+# create hard links in applications
+sudo ln -P 1monitor.desktop /usr/share/applications/
+sudo ln -P 2mons.desktop /usr/share/applications/
+sudo ln -P 2mone.desktop /usr/share/applications/

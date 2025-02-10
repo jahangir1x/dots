@@ -1,0 +1,20 @@
+[Desktop Entry]
+Actions=new-latte-dock;
+Categories=Utility;Tools;
+Comment[en_US]=
+Comment=
+Exec=/bin/latte-dock -r --layout '2 monitor extend'
+GenericName[en_US]=Changes latte dock to two monitor mode (extend)
+GenericName=Changes latte dock to two monitor mode (extend)
+Icon=application-x-shellscript
+Keywords=latte;monitor;
+MimeType=
+Name[en_US]=2mone
+Name=2mone
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

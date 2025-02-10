@@ -1,0 +1,20 @@
+[Desktop Entry]
+Actions=new-latte-dock;
+Categories=Utility;Tools;
+Comment[en_US]=
+Comment=
+Exec=/bin/latte-dock -r --layout '1 monitor'
+GenericName[en_US]=Changes latte dock to one monitor mode
+GenericName=Changes latte dock to one monitor mode
+Icon=application-x-shellscript
+Keywords=latte;monitor;
+MimeType=
+Name[en_US]=1monitor
+Name=1monitor
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
