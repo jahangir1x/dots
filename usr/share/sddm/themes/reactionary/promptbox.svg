@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 546 345" width="546" height="345">
+	<title>promptbox</title>
+	<style>
+		.s0 { opacity: .4;fill: #000000 } 
+		.s1 { opacity: .5;fill: #000000 } 
+	</style>
+	<g id="layer1">
+		<path id="rect3842" fill-rule="evenodd" class="s0" d="m1 0h544v344h-544z"/>
+		<path id="rect4610" fill-rule="evenodd" class="s1" d="m4 3h538v23h-538z"/>
+	</g>
+</svg>
