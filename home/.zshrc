@@ -79,6 +79,7 @@ obsidian-sync() {
 
 alias yay='yay --sudoloop --batchinstall'
 alias fastfetch='fastfetch -l windows'
+alias about='~/playground/CP/about.sh'
 # alias ssh='kitty +kitten ssh'
 
 # The next line updates PATH for the Google Cloud SDK.
