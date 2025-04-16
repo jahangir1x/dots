@@ -77,6 +77,31 @@ obsidian-sync() {
   bash ~/obsidian_vault/.obsidian/sync.sh
 }
 
+datetime-sync(){
+  echo "Syncing time with NTP server"
+  sudo systemctl stop ntpd
+  sudo ntpdate 0.us.pool.ntp.org
+  sudo systemctl start ntpd
+  echo "Time synced with NTP server"
+}
+
+# apply dark colorscheme after package updates
+colorscheme-hammer-fix(){
+  cd /usr/share/color-schemes
+  echo creating backup
+  sudo cp BreezeLight.colors BreezeLight.colors.bak
+  echo enforcing dark mode
+  sudo cp BreezeDark.colors BreezeLight.colors
+  cd ~
+}
+
+# own the code directory to apply custom css and js
+code-chown(){
+  echo "changing ownership of code"
+  sudo chown -R $(whoami) "$(which code)"
+  sudo chown -R $(whoami) /opt/visual-studio-code
+}
+
 alias yay='yay --sudoloop --batchinstall'
 alias fastfetch='fastfetch -l windows'
 alias about='~/playground/CP/about.sh'

@@ -97,7 +97,7 @@ async function listDdcMonitorsSnBus() {
             if (!reg.test(display))
                 return;
             const lines = display.split('\n');
-            const sn = lines[3].split(':')[3];
+            const sn = lines[4].split(':')[3];
             const busNum = lines[1].split('/dev/i2c-')[1];
             ddcSnBus[sn] = busNum;
         });
