@@ -655,6 +655,11 @@
         .title {
             padding-block: 0px !important;
         }
+
+        .icon-wrapper {
+            width: 64px !important;
+            height: 64px !important;
+        }
         
         .title-label  {
             padding: 0px !important;
@@ -921,6 +926,14 @@
     button.primary:hover{
         background-color: var(--general-color) !important;
         color: white !important; 
+    }
+}
+
+@-moz-document url(about:newtab) {
+
+    .wordmark {
+        background: url("../icons/firefox-wordmark-bangla.svg") no-repeat center center !important;
+        width: 160px !important;
     }
 }
 

@@ -318,7 +318,7 @@
     {
         "key": "shift+t",
         "command": "workbench.action.quickOpen",
-        "when": "vim.mode == 'Normal'"
+        "when": "vim.mode == 'Normal' && !filesExplorerFocus"
     },
     // delete word left
     {
