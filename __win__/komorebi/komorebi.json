@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.34/schema.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 0,
+  "default_container_padding": 0,
+  "border": true,
+  "border_width": 6,
+  "border_offset": -1,
+  "border_colours": {
+    "single": "#67e2a7",
+    "stack": "#00a542",
+    "monocle": "#ff3399",
+    "floating": "#fdee16",
+    "unfocused": "#808080"
+  },
+  "floating_applications": [
+    {
+      "kind": "Title",
+      "id": "Media Player",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "focused_text": "#00a542",
+      "unfocused_text": "#b3b3b3",
+      "background": "#141414"
+    }
+  },
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "Grid"
+        },
+        {
+          "name": "III",
+          "layout": "VerticalStack"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "IV",
+          "layout": "BSP"
+        },
+        {
+          "name": "VI",
+          "layout": "Grid"
+        },
+        {
+          "name": "VII",
+          "layout": "VerticalStack"
+        }
+      ]
+    }
+  ],
+  "display_index_preferences": {
+    "0": "GSM5B55-4&57db65f&0&UID198147",
+    "1": "GSM5B55-4&57db65f&0&UID198147",
+    "2": "GSM5B55-4&57db65f&0&UID198147",
+    "3": "BOE07CB-4&57db65f&0&UID265988",
+    "4": "BOE07CB-4&57db65f&0&UID265988",
+    "5": "BOE07CB-4&57db65f&0&UID265988"
+  },
+  "mouse_follows_focus": true,
+  "app_specific_configuration_path": "C:/Users/rocky/.config/komorebi/applications.json"
+}
