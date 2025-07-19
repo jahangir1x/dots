@@ -315,11 +315,6 @@
         "key": "ctrl+e",
         "command": "-workbench.action.quickOpen"
     },
-    {
-        "key": "shift+t",
-        "command": "workbench.action.quickOpen",
-        "when": "vim.mode == 'Normal' && !filesExplorerFocus"
-    },
     // delete word left
     {
         "key": "ctrl+w",
@@ -346,12 +341,6 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
     },
     {
-        "key": "ctrl+n",
-        "command": "quickInput.next",
-        "when": "inQuickInput && quickInputType == 'quickPick'"
-    },
-    // previous suggestion
-    {
         "key": "ctrl+p",
         "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
     },
@@ -368,5 +357,45 @@
         "key": "ctrl+p",
         "command": "quickInput.previous",
         "when": "inQuickInput && quickInputType == 'quickPick'"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "editor.action.inlineSuggest.acceptNextWord",
+        "when": "inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "-editor.action.accessibleViewGoToSymbol",
+        "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "-workbench.action.gotoSymbol",
+        "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-workbench.action.chat.openAgent",
+        "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
     },
 ]

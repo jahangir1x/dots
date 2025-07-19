@@ -161,11 +161,47 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    },
+    {
+      "before": [
         "<leader>",
         "e"
       ],
       "commands": [
         "workbench.view.explorer"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen",
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.gotoSymbol"
       ]
     },
     {
@@ -228,7 +264,7 @@
         "s"
       ],
       "commands": [
-        "workbench.action.files.save"
+        "saveAll"
       ]
     },
     {
@@ -238,15 +274,6 @@
       ],
       "commands": [
         "workbench.action.showCommands",
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.files.openFolder"
       ]
     },
     {
@@ -286,6 +313,21 @@
     }
   ],
   "vim.leader": "<Space>",
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": [
+    "#292a2b",
+    "#ffffff"
+  ],
+  "vim.statusBarColors.insert": "#292a2b",
+  "vim.statusBarColors.visual": "#67bbe2be",
+  "vim.statusBarColors.visualline": "#918d03",
+  "vim.statusBarColors.visualblock": "#A3BE8C",
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.files.exclude": {
     "**/.vs": true,
@@ -308,9 +350,14 @@
     80
   ],
   "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#ff4b81be",
+    "editorCursor.foreground": "#67bbe2",
+    "editorRuler.foreground": "#67bbe2be",
+    "statusBar.noFolderBackground": "#292a2b",
+    "statusBar.debuggingBackground": "#292a2b",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.debuggingForeground": "#ffffff",
+    "statusBar.background": "#292a2b"
   },
-  "editor.lineNumbers": "relative",
   "leetcode.hint.setDefaultLanguage": false,
   "editor.wordWrap": "on",
   "redhat.telemetry.enabled": true,
@@ -365,13 +412,13 @@
   "notebook.formatOnCellExecution": true,
   "notebook.formatOnSave.enabled": true,
   "[java]": {
-    "editor.defaultFormatter": "Oracle.oracle-java"
+    "editor.defaultFormatter": "redhat.java"
   },
   "java.jdt.ls.vmargs": "-Xlog:jni+resolve=off",
   "github.copilot.editor.enableAutoCompletions": true,
   "database-client.autoSync": true,
-  "C_Cpp.default.cStandard": "c17",
-  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
   "git.openRepositoryInParentFolders": "always",
   "[go]": {
     "editor.defaultFormatter": "golang.go"
@@ -380,8 +427,8 @@
   "maui.configuration.androidSdkPreferredPath": "",
   "python.createEnvironment.trigger": "off",
   "vscode_custom_css.imports": [
-    "file://${userHome}/.config/code_custom_injections/cursor_trail.js"
-    // "file:///C:/Users/rocky/.config/code_custom_injections/index.js"
+    "file://${userHome}/.config/code_custom_injections/cursor_trail.js",
+    "file:///C:/Users/rocky/.config/code_custom_injections/theme_injections.css"
   ],
   "customLocalFormatters.formatters": [
     {
@@ -399,5 +446,16 @@
   },
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
-  }
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "github.copilot.nextEditSuggestions.enabled": true
 }
