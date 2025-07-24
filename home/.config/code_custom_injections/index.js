@@ -3,7 +3,7 @@
 // Configuration
 
 // Set the color of the cursor trail to match the user's cursor color
-const Color = "#67bbe2" // If set to "default," it will use the theme's cursor color.
+const Color = "#ff4b82" // If set to "default," it will use the theme's cursor color.
 // ! default will only reference editorCursor.background
 // "workbench.colorCustomizations": {
 //     "editorCursor.background": "#A052FF",
@@ -17,7 +17,7 @@ const CursorStyle = "block" // Options are 'line' or 'block'
 const TrailLength = 8 // Recommended value is around 8
 
 // Set the polling rate for handling cursor created and destroyed events, in milliseconds.
-const CursorUpdatePollingRate = 100 // Recommended value is around 500
+const CursorUpdatePollingRate = 500 // Recommended value is around 500
 
 // Use shadow
 const UseShadow = false
