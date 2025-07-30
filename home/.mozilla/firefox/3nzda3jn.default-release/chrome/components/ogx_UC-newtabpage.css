@@ -1166,3 +1166,11 @@
         }
     }
 }
+
+@-moz-document url(about:newtab) {
+
+    .wordmark {
+        background: url("../icons/firefox-wordmark-bangla.svg") no-repeat center center !important;
+        width: 160px !important;
+    }
+}
