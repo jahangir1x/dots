@@ -16,82 +16,87 @@
   .tabbrowser-tab[visuallyselected] > .tab-stack::before{
     display: none !important;
   }
-  
-  @media not -moz-pref("sidebar.verticalTabs") {
 
-    #tabbrowser-arrowscrollbox[orient="horizontal"] {
-        
-        /* Margin between tabs */
-        &>.tabbrowser-tab {
-            padding-inline: 0 !important;
-        }
+  #tabbrowser-arrowscrollbox[orient="horizontal"] {
+
+    /* Margin between tabs */
+    &>.tabbrowser-tab,
+    &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-child) {
+      padding-inline: 0 !important;
     }
+
+    /* Margin last tab of group */
+    &>tab-group:not([collapsed])>.tabbrowser-tab:is(:last-child) {
+      margin-inline-end: calc(var(--uc-tab-corner-size)/2) !important;
+    }
+  }
+  
+  /* Space between pinned tabs and regular tabs */
+  #pinned-tabs-container[orient="horizontal"] {
+    margin-inline-end: calc(0px - var(--uc-tab-corner-half-size, 4px)) !important;
   }
 
   /* _____________ Group name style _____________ */
   
   /* Bug-fix: Collapsed group tabs invisible to solve it */
-
   tab-group:is([collapsed]) .tabbrowser-tab {
-    opacity: 0 !important;
+    opacity: 0 !important; 
+    pointer-events: none !important;
   }
 
-  /* Smaller size of tab shape */
-  
-  tab-group>.tabbrowser-tab {
-    & .tab-background::before,
-    & .tab-background::after {
-      /*Smaller tab size*/
+  /* Smaller size of tab shape */  
+  tab-group>.tabbrowser-tab .tab-background {
+    &::before, &::after {
       height: calc(var(--tab-height-personal) - 4px) !important;
       width: calc(var(--uc-tab-corner-size) - 4px) !important;
-      top: 0 !important;
     }
   }
   
 /* ________________________________________________ various styles ________________________________________________ */
 
   @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or
-         -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or
-         -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
+    -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or
+    -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
 
-          :root,
-          :root[lwtheme],
-          :root:not([lwtheme]){
-            --border-radius-urlbar-personal: 14px !important;
-            --urlbar-icon-border-radius: 4px !important;
-          }
+      :root {
+        --border-radius-urlbar-personal: 14px !important;
+        --urlbar-icon-border-radius: 14px !important;
+      }
 
-          .tab-close-button {
-            clip-path: circle(50%) !important; 
-            padding: 5px !important;
-            border-radius: 0px !important;
+      /* Various navbar and tabsbar buttons border radius */
+      toolbar toolbarbutton:not(toolbarbutton.bookmark-item, .subviewbutton)>image,
+      toolbar toolbarbutton:not(#PanelUI-menu-button) .toolbarbutton-badge-stack {
+        clip-path: circle(50%) !important;
+      }
+      
+      /* Bookmarks items */
+      @media not -moz-pref("firefoxgx.left-sidebar") {
+        toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled]) {
+            border-radius: var(--border-radius-urlbar-personal) !important;
           }
-
-          #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
-            border-radius: 50% !important;
-          }
+      }
+      
+      @media -moz-pref("firefoxgx.left-sidebar") {
+        #PersonalToolbar .toolbarbutton-badge-stack {
+          clip-path: none !important;
+        }
+      }
   }
 
   /* Newtab button */
   
   #tabs-newtab-button {
-    padding-inline-start: calc(var(--tab-height-personal) - 34px + var(--uc-margin-left-newtab)) !important; 
+    padding-inline-start: calc(var(--tab-height-personal) - 34px + var(--uc-margin-left-newtab)) !important;
   }
 
-/* Trick to maintain margin on the <left> and <right> of the tabs */
+  /* Trick to maintain margin on the <left> and <right> of the tabs */
   
-  .tabbrowser-tab:not(#tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab):nth-child(1 of :not([hidden])){
-    margin-inline-start: calc( 0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important; 
+  .tabbrowser-tab:nth-child(1 of :not([hidden])) {
+    margin-inline-start: calc(0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important;
   }
-
-  /* Margin to the left of the tabs-bar when overflow */
-
-  #tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]){
-    margin-inline-start: calc( 4px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 0px)) !important;
-  }
-
-  #tabbrowser-tabs[haspinnedtabs]> #tabbrowser-arrowscrollbox > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
-    margin-inline-start: var(--uc-tab-corner-half-size) !important;
+  
+  #tabbrowser-tabs>#pinned-tabs-container>.tabbrowser-tab:last-child {
+    margin-inline-end: calc(0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important;
   }
 
 /* _________________________________________________ Multi Selected Color _________________________________________________ */
@@ -118,8 +123,7 @@
       outline-color: transparent !important;
   }
   
-  /* Background when multiselecting */
-  
+  /* Background when multiselecting */  
   .tabbrowser-tab[multiselected] .tab-background {
     &::before,
     &::after {
@@ -129,8 +133,7 @@
     }
   }
     
-  /* backgrounds when moving a group of tabs */
-  
+  /* backgrounds when moving a group of tabs */  
   #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([multiselected]):not([visuallyselected]) .tab-background {
     background: color-mix(in srgb, var(--contrast-color) 46%, var(--general-color, transparent)) !important;
   }
@@ -149,7 +152,8 @@
     background-attachment: scroll, fixed, fixed !important;
     background-color: transparent !important;
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-                    var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+                                      var(--lwt-additional-images,none), var(--lwt-header-image, none),
+                      linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
     background-position: 0 0, var(--lwt-background-alignment), right top !important;
     background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
     background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
@@ -274,7 +278,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
         
         --uc-margin-left-right: 4px;
-        --uc-margin-left-newtab: 7px;
+        --uc-margin-left-newtab: 3px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
@@ -287,7 +291,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-clipped.svg");
         
         --uc-margin-left-right: 1px;
-        --uc-margin-left-newtab: 8px;
+        --uc-margin-left-newtab: 4px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
@@ -301,7 +305,7 @@
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: -1px;
-        --uc-margin-left-newtab: 7px;
+        --uc-margin-left-newtab: 3px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
@@ -314,7 +318,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
         
         --uc-margin-left-right: 6px;
-        --uc-margin-left-newtab: 12px;
+        --uc-margin-left-newtab: 8px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
@@ -328,7 +332,7 @@
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: 2px;
-        --uc-margin-left-newtab: 8px;
+        --uc-margin-left-newtab: 4px;
       }
     }
       .tabbrowser-tab {
@@ -377,7 +381,8 @@
         & .tab-background::before,
         & .tab-background::after {
           background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-            var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+                                            var(--lwt-additional-images,none), var(--lwt-header-image, none),
+                            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
           background-position: 0 0, var(--lwt-background-alignment), right top !important;
           background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
           background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
@@ -400,7 +405,7 @@
       & .tab-background::before,
       & .tab-background::after {
         top: -1px !important;
-        transition: fill 0.2s ease !important;
+        /*transition: fill 0.2s ease !important;/**/
       }
     }
   }
@@ -430,24 +435,6 @@
       */
       --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
       fill: rgba(255, 255, 255, 0.075);
-    }
-  }
-  
-/* ___________________________________________________ Compatibility with "one-line" config ___________________________________________________ */
-  
-  @media -moz-pref("firefoxgx.oneline") {
-
-    @media screen and (min-width: 1000px) {
-      /* ___________________________________ Missed Selected tab background _______________________ */
-
-      .tabbrowser-tab:is([selected]) {
-        & .tab-background,
-        & .tab-background::before,
-        & .tab-background::after {      
-          background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), 
-            var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-        }
-      }
     }
   }
 }
