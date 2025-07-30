@@ -90,7 +90,7 @@ Rectangle {
                     text : textConstants.userName
                     font.pixelSize : 12
                     verticalAlignment : Text.AlignVCenter
-                    color : "#303030"
+                    color : "#ffffff"
                     font.family : loginfont.name
                 }
                 TextField {
@@ -124,7 +124,7 @@ Rectangle {
                     width : 72
                     text : textConstants.password
                     verticalAlignment : Text.AlignVCenter
-                    color : "#303030"
+                    color : "#ffffff"
                     font.pixelSize : 12
                     font.family : loginfont.name
                 }
@@ -185,7 +185,7 @@ Rectangle {
                     anchors.centerIn : parent
                     font.family : loginfont.name
                     font.pixelSize : 12
-                    color : "#303030"
+                    color : "#ffffff"
                 }
 
                 KeyNavigation.backtab : password
@@ -207,7 +207,7 @@ Rectangle {
                 font.pixelSize : 12
                 // verticalAlignment : Text.AlignVCenter
                 font.family : loginfont.name
-                color : "#303030"
+                color : "#ffffff"
             }
             ComboBox {
                 id : session

@@ -124,3 +124,11 @@ bindkey "$terminfo[kcbt]" reverse-menu-complete
 # setopt appendhistory
 # setopt hist_ignore_dups
 
+
+# pnpm
+export PNPM_HOME="/home/zinis/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
