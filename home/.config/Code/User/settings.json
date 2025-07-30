@@ -428,7 +428,7 @@
   "python.createEnvironment.trigger": "off",
   "vscode_custom_css.imports": [
     "file://${userHome}/.config/code_custom_injections/cursor_trail.js",
-    "file:///C:/Users/rocky/.config/code_custom_injections/theme_injections.css"
+    "file://${userHome}/.config/code_custom_injections/theme_injections.css"
   ],
   "customLocalFormatters.formatters": [
     {

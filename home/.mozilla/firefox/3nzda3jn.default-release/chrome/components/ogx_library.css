@@ -1,9 +1,16 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /* _________________________________________ library _________________________________________ */
 
-@-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml){
+@-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml) {
+    
+    @media not (prefers-contrast) {
+        :root:not([lwtheme]) {
+            --toolbarbutton-icon-fill-attention: unset !important;  /* Remove color used for accent color */
+        }
+    }
+
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;
