@@ -418,7 +418,27 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "database-client.autoSync": true,
   "C_Cpp.default.cStandard": "c11",
-  "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+  "platformSettings.autoLoad": true,
+  "platformSettings.platforms": {
+    "linux": {
+      "nodes": {
+        "code-runner.executorMap": {
+          "c": "clear; cd $dir && gcc $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin",
+          "cpp": "clear; cd $dir && g++ $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin"
+        },
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+      }
+    },
+    "win32": {
+      "nodes": {
+        "code-runner.executorMap": {
+          "c": "cls && cd $dir && gcc $fileName -o $fileNameWithoutExt.exe && $dir$fileNameWithoutExt.exe",
+          "cpp": "cls && cd $dir && g++ $fileName -o $fileNameWithoutExt.exe && $dir$fileNameWithoutExt.exe"
+        },
+        "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+      }
+    },
+  },
   "git.openRepositoryInParentFolders": "always",
   "[go]": {
     "editor.defaultFormatter": "golang.go"
@@ -460,5 +480,10 @@
   "github.copilot.nextEditSuggestions.enabled": true,
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-  }
+  },
+  "code-runner.executorMap": {
+    "c": "clear; cd $dir && gcc $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin",
+    "cpp": "clear; cd $dir && g++ $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin"
+  },
+  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64"
 }
