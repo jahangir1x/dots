@@ -398,4 +398,9 @@
         "command": "-workbench.action.chat.openAgent",
         "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
     },
+    {
+        "key": "ctrl+n",
+        "command": "quickInput.next",
+        "when": "inQuickInput && quickInputType == 'quickPick' || inQuickInput && quickInputType == 'quickTree'"
+    }
 ]

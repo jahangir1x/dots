@@ -12,10 +12,9 @@
   "editor.cursorWidth": 5,
   "editor.experimental.pasteActions.enabled": true,
   "editor.fontFamily": "'JetBrainsMono NF','Consolas', 'Courier New', monospace",
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.fontSize": 16,
   "editor.fontWeight": "400",
-  "editor.formatOnType": true,
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
@@ -30,7 +29,6 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "extensions.autoUpdate": false,
-  "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 500,
   "files.exclude": {
     "**/.classpath": true,
@@ -45,10 +43,11 @@
     "*": true,
     "plaintext": true,
     "markdown": true,
-    "scminput": false,
-    "c": true,
+    "scminput": true,
+    "c": true
   },
   "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   // html configs
   "html.suggest.html5": true,
@@ -62,7 +61,6 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "notebook.lineNumbers": "on",
   "omnisharp.enableEditorConfigSupport": false,
-  "omnisharp.organizeImportsOnFormat": true,
   // c# javascript like styling requires $home/.omnisharp
   "omnisharp.useModernNet": false,
   "settings.cycle": [
@@ -71,10 +69,20 @@
       "overrideWorkspaceSettings": true,
       "values": [
         {
-          "github.copilot.editor.enableAutoCompletions": false
+          "github.copilot.nextEditSuggestions.enabled": false,
+          "github.copilot.enable": {
+            "*": false,
+          },
         },
         {
-          "github.copilot.editor.enableAutoCompletions": true
+          "github.copilot.nextEditSuggestions.enabled": true,
+          "github.copilot.enable": {
+            "*": true,
+            "plaintext": true,
+            "markdown": true,
+            "scminput": true,
+            "c": true,
+          },
         }
       ]
     },
@@ -176,6 +184,15 @@
         "g",
         "k"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "editor.action.formatDocument",
+      ],
     },
     {
       "before": [
@@ -287,6 +304,15 @@
     },
     {
       "before": [
+        "<leader>",
+        "q"
+      ],
+      "after": [
+        "q"
+      ]
+    },
+    {
+      "before": [
         "q"
       ],
       "commands": [
@@ -344,8 +370,9 @@
   "python.languageServer": "Pylance",
   "terminal.integrated.smoothScrolling": true,
   "workbench.sideBar.location": "right",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "Monokai Classic Icons",
   "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "none",
   "editor.rulers": [
     80
   ],
@@ -369,8 +396,7 @@
     "workbench.action.tasks.configureTaskRunner",
     "workbench.action.tasks.runTask"
   ],
-  "workbench.colorTheme": "Panda Syntax",
-  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Monokai Classic",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
@@ -390,7 +416,8 @@
     "editor.tabSize": 2
   },
   "[json]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[typescript]": {
     "editor.tabSize": 2
@@ -415,40 +442,17 @@
     "editor.defaultFormatter": "redhat.java"
   },
   "java.jdt.ls.vmargs": "-Xlog:jni+resolve=off",
-  "github.copilot.editor.enableAutoCompletions": true,
   "database-client.autoSync": true,
   "C_Cpp.default.cStandard": "c11",
-  "platformSettings.autoLoad": true,
-  "platformSettings.platforms": {
-    "linux": {
-      "nodes": {
-        "code-runner.executorMap": {
-          "c": "clear; cd $dir && gcc $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin",
-          "cpp": "clear; cd $dir && g++ $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin"
-        },
-        "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
-      }
-    },
-    "win32": {
-      "nodes": {
-        "code-runner.executorMap": {
-          "c": "cls && cd $dir && gcc $fileName -o $fileNameWithoutExt.exe && $dir$fileNameWithoutExt.exe",
-          "cpp": "cls && cd $dir && g++ $fileName -o $fileNameWithoutExt.exe && $dir$fileNameWithoutExt.exe"
-        },
-        "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
-      }
-    },
-  },
   "git.openRepositoryInParentFolders": "always",
   "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
   "maui.configuration.javaSdkPreferredPath": "",
   "maui.configuration.androidSdkPreferredPath": "",
-  "python.createEnvironment.trigger": "off",
   "vscode_custom_css.imports": [
     "file://${userHome}/.config/code_custom_injections/cursor_trail.js",
-    "file://${userHome}/.config/code_custom_injections/theme_injections.css"
+    "file:///C:/Users/rocky/.config/code_custom_injections/theme_injections.css"
   ],
   "customLocalFormatters.formatters": [
     {
@@ -478,12 +482,42 @@
     "editor.wordBasedSuggestions": "off"
   },
   "github.copilot.nextEditSuggestions.enabled": true,
-  "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "81FE1A8A-B857-4827-A05C-A852FC2C7886"
+    }
+  ],
+  "mssql.connections": [
+    {
+      "authenticationType": "Integrated",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "profileName": "local",
+      "server": "XR",
+      "database": "",
+      "trustServerCertificate": true,
+      "groupId": "81FE1A8A-B857-4827-A05C-A852FC2C7886",
+      "id": "906660BF-83E0-4010-A415-4760756C6AA3",
+      "user": "",
+      "password": "",
+      "commandTimeout": 30,
+      "encrypt": "Mandatory",
+      "profileSource": 0
+    }
+  ],
+  "chat.agent.maxRequests": 9999999,
+  "editor.formatOnType": true,
+  "window.commandCenter": false,
+  "chat.commandCenter.enabled": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "[sql]": {
+    "editor.defaultFormatter": "ms-mssql.mssql"
   },
-  "code-runner.executorMap": {
-    "c": "clear; cd $dir && gcc $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin",
-    "cpp": "clear; cd $dir && g++ $fileName -o $fileNameWithoutExt.bin && $dir$fileNameWithoutExt.bin"
-  },
-  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
 }
