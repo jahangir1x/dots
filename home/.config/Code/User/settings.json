@@ -41,7 +41,7 @@
   "git.enableSmartCommit": true,
   "github.copilot.enable": {
     "*": true,
-    "plaintext": true,
+    "plaintext": false,
     "markdown": true,
     "scminput": true,
     "c": true
@@ -193,6 +193,26 @@
       "commands": [
         "editor.action.formatDocument",
       ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToPreviousGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToNextGroup"
+      ]
     },
     {
       "before": [
@@ -370,7 +390,6 @@
   "python.languageServer": "Pylance",
   "terminal.integrated.smoothScrolling": true,
   "workbench.sideBar.location": "right",
-  "workbench.iconTheme": "Monokai Classic Icons",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "none",
   "editor.rulers": [
@@ -396,7 +415,6 @@
     "workbench.action.tasks.configureTaskRunner",
     "workbench.action.tasks.runTask"
   ],
-  "workbench.colorTheme": "Monokai Classic",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
@@ -520,4 +538,5 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.colorTheme": "Monokai Pro",
 }
